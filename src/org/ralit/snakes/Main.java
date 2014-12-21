@@ -9,19 +9,28 @@ public class Main {
 
 	private static String HOME = System.getProperty("user.home");
 	
+	/**
+	 * 1‰ñ‚¾‚¯
+	 */
+	static int n = 100;
+	static float ƒ¿ = 0.45f;
+	static float ƒÀ = 0.35f;
+	static float ƒÁ = 0.2f;
 	public static void main(String[] args) throws IOException {
 		Snakes snakes = new Snakes(
 				HOME + "/Desktop/Snakes/p388-nemu-yumemi.jpg", 
 				HOME + "/Desktop/Snakes/output/", 
 				HOME + "/Desktop/Snakes/data.txt", 
 				-1,
-				100, 
-				0.45f, 
-				0.35f, 
-				0.2f);
-		writePoints(snakes.getImage().p, snakes.getPoints(), HOME + "/Desktop/Snakes/output/p388-nemu-yumemi_045,035,02.png", rgb(255, 0, 0));
+				n, 
+				ƒ¿, 
+				ƒÀ, 
+				ƒÁ);
+		writePoints(snakes.getImage().p, snakes.getPoints(), HOME + "/Desktop/Snakes/output/p388-nemu-yumemi_"+"n"+n+","+ƒ¿+","+ƒÀ+","+ƒÁ+".png", rgb(255, 0, 0));
 
-		
+	/**
+	 * ‚½‚­‚³‚ñƒpƒ‰ƒ[ƒ^‚ğ‚·
+	 */
 //		int n = 100;
 //		for(int ƒ¿=1; ƒ¿ <= 10; ƒ¿+=3) {
 //			for(int ƒÀ=1; ƒÀ <= 10; ƒÀ+=3) {
