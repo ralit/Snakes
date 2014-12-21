@@ -9,34 +9,52 @@ public class Main {
 
 	private static String HOME = System.getProperty("user.home");
 	
-	/**
-	 * 1回だけ
-	 */
-	static int n = 1000;
-	static float α = 0.45f;
-	static float β = 0.35f;
-	static float γ = 0.2f;
 	public static void main(String[] args) throws IOException {
-		Snakes snakes = new Snakes(
-				HOME + "/Desktop/Snakes/p388-nemu-yumemi.jpg", 
-				HOME + "/Desktop/Snakes/output/", 
-				HOME + "/Desktop/Snakes/data.txt", 
-				-1,
-				n, 
-				α, 
-				β, 
-				γ);
-		writePoints(snakes.getImage().p, snakes.getPoints(), HOME + "/Desktop/Snakes/output/p388-nemu-yumemi_"+"n"+n+","+α+","+β+","+γ+".png", rgb(255, 0, 0));
+		/**
+		 * 1回だけ
+		 */
+//		int n = 1000;
+//		float α = -4;
+//		float β = 1;
+//		float γ = 16;
+//		Snakes snakes = new Snakes(
+//				HOME + "/Desktop/Snakes/p388-nemu-yumemi.jpg", 
+//				HOME + "/Desktop/Snakes/output/", 
+//				HOME + "/Desktop/Snakes/data.txt", 
+//				-1,
+//				n, 
+//				α, 
+//				β, 
+//				γ);
+//		writePoints(snakes.getImage().p, snakes.getPoints(), HOME + "/Desktop/Snakes/output/p388-nemu-yumemi_"+"n"+n+","+α+","+β+","+γ+".png", rgb(255, 0, 0));
 
-	/**
-	 * たくさんパラメータを試す
-	 */
+		/**
+		 * たくさんパラメータを試す
+		 */
+		int n = 100;
+		for(int α=0; α <= 100; α+=20) {
+			for(int β=0; β <= 100; β+=20) {
+				for(int γ=0; γ <= 100; γ+=20) {
+					Snakes snakes = new Snakes(
+							HOME + "/Desktop/Snakes/p388-nemu-yumemi.jpg", 
+							HOME + "/Desktop/Snakes/output/", 
+							HOME + "/Desktop/Snakes/data.txt", 
+							-1,
+							n, 
+							α, 
+							β, 
+							γ);
+					writePoints(snakes.getImage().p, snakes.getPoints(), HOME + "/Desktop/Snakes/output/p388-nemu-yumemi_"+"n"+n+","+α+","+β+","+γ+".png", rgb(255, 0, 0));
+				}
+			}
+		}
+		
 //		int n = 100;
-//		for(int α=1; α <= 10; α+=3) {
-//			for(int β=1; β <= 10; β+=3) {
-//				for(int γ=1; γ <= 10; γ+=3) {
+//		for(int α=0; α <= 100; α+=20) {
+//			for(int β=0; β <= 100; β+=20) {
+//				for(int γ=0; γ <= 100; γ+=20) {
 //					Snakes snakes = new Snakes(
-//							HOME + "/Desktop/Snakes/p388-nemu-yumemi.jpg", 
+//							HOME + "/Desktop/Snakes/pusheen.jpg", 
 //							HOME + "/Desktop/Snakes/output/", 
 //							HOME + "/Desktop/Snakes/data.txt", 
 //							-1,
@@ -44,7 +62,7 @@ public class Main {
 //							α, 
 //							β, 
 //							γ);
-//					writePoints(snakes.getImage().p, snakes.getPoints(), HOME + "/Desktop/Snakes/output/p388-nemu-yumemi_"+"n"+n+","+α+","+β+","+γ+".png", rgb(255, 0, 0));
+//					writePoints(snakes.getImage().p, snakes.getPoints(), HOME + "/Desktop/Snakes/output/pusheen_"+"n"+n+","+α+","+β+","+γ+".png", rgb(255, 0, 0));
 //				}
 //			}
 //		}
