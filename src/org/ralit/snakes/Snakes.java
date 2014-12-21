@@ -41,8 +41,8 @@ public class Snakes {
 		
 		long time1 = System.currentTimeMillis();
 		
-//		while(繰り返し回数 < 繰り返し回数の上限 && 頂点の総移動量の閾値 < 頂点の総移動量) {
-		while(繰り返し回数 < 繰り返し回数の上限) {
+		while(繰り返し回数 < 繰り返し回数の上限 && 頂点の総移動量の閾値 < 頂点の総移動量) {
+//		while(繰り返し回数 < 繰り返し回数の上限) {
 			繰り返し回数++;
 			頂点の総移動量 = 0;
 			for(int i = 0; i < v.length; i++) {
@@ -85,6 +85,7 @@ public class Snakes {
 		for (int i = 0; i < pointArrayList.size(); i++) {
 			v[i] = pointArrayList.get(i);
 		}
+		reader.close();
 		return v;
 	}
 	
@@ -145,6 +146,7 @@ public class Snakes {
 	/**
 	 * はじめは初期頂点を画像で用意していたのだが(その方が楽だから)、頂点の順番を反映できないので、結局テキストファイルを読み込むことになり、このメソッドは使われなくなった
 	 */
+	@SuppressWarnings("unused")
 	private Point[] get初期頂点配列(Image 初期頂点画像) {
 		ArrayList<Point> pointArrayList = new ArrayList<Point>();
 		for (int y = 0; y < 初期頂点画像.h; y++) {

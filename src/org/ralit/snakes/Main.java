@@ -12,7 +12,7 @@ public class Main {
 	/**
 	 * 1‰ñ‚¾‚¯
 	 */
-	static int n = 100;
+	static int n = 1000;
 	static float ƒ¿ = 0.45f;
 	static float ƒÀ = 0.35f;
 	static float ƒÁ = 0.2f;
