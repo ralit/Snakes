@@ -48,8 +48,10 @@ public class Snakes {
 			for(int i = 0; i < v.length; i++) {
 				int 移動方向 = i番目の頂点の8近傍の最小局所エネルギーを求める(i);
 				v[i] = new Point(Math.min(Math.max(v[i].x + 移動方向配列[移動方向][0], 0), 入力画像.w - 1), Math.min(Math.max(v[i].y + 移動方向配列[移動方向][1], 0), 入力画像.h - 1));
+				System.out.print(移動方向);
 				頂点の総移動量 += Math.pow((v[i].x - v0[i].x), 2) + Math.pow((v[i].y - v0[i].y), 2); 
 			}
+			System.out.println("");
 //			System.out.println(繰り返し回数);
 		}
 		
@@ -92,13 +94,29 @@ public class Snakes {
 	private int i番目の頂点の8近傍の最小局所エネルギーを求める(int i) {
 		int 移動方向 = 0;
 		double 最小値 = Double.MAX_VALUE;
+		
+		double[] Econt8 = new double[8]; 
+		double[] Ecurv8 = new double[8];
+		double EcontMAX = 0;
+		double EcurvMAX = 0;
+		
+		// 正規化のための最大値をもとめる
+		for(int j = 0; j < 移動方向配列.length; j++) {
+			int x = Math.min(Math.max(v[i].x + 移動方向配列[j][0], 0), 入力画像.w - 1);
+			int y = Math.min(Math.max(v[i].y + 移動方向配列[j][1], 0), 入力画像.h - 1);
+			Econt8[j] = Math.pow((v[geti(i+1)].x - x), 2) + Math.pow((v[geti(i+1)].y - y), 2);
+			Ecurv8[j] = Math.pow(((v[geti(i+1)].x - x) + (v[geti(i-1)].x - x)), 2) + Math.pow(((v[geti(i+1)].y - y) + (v[geti(i-1)].y - y)), 2);
+			if(EcontMAX < Econt8[j]) { EcontMAX = Econt8[j]; }
+			if(EcurvMAX < Ecurv8[j]) { EcurvMAX = Ecurv8[j]; }
+		}
+		
+		// 8近傍の中で局所エネルギーが最小になるところを求める
 		for(int j = 0; j < 移動方向配列.length; j++) {
 			int x = Math.min(Math.max(v[i].x + 移動方向配列[j][0], 0), 入力画像.w - 1);
 			int y = Math.min(Math.max(v[i].y + 移動方向配列[j][1], 0), 入力画像.h - 1);
 			int 最小の8近傍の輝度 = 最小の8近傍の輝度(x, y);
-			double 現在値 = α*( Math.pow((v[geti(i+1)].x - x), 2) + Math.pow((v[geti(i+1)].y - y), 2) ) +
-			               β*( Math.pow(((v[geti(i+1)].x - x) + (v[geti(i-1)].x - x)), 2) + Math.pow(((v[geti(i+1)].y - y) + (v[geti(i-1)].y - y)), 2) ) + 
-			               γ*( (-1f) * (入力画像.p[y][x] - 最小の8近傍の輝度) / Math.max(最大の8近傍の輝度(x, y) - 最小の8近傍の輝度, 5) );
+			double Eimage = (-1f) * (入力画像.p[y][x] - 最小の8近傍の輝度) / Math.max(最大の8近傍の輝度(x, y) - 最小の8近傍の輝度, 5);
+			double 現在値 = α*( Econt8[j] / EcontMAX ) + β*( Ecurv8[j] / EcurvMAX ) + γ*( Eimage );
 			if(現在値 < 最小値) {
 				最小値 = 現在値;
 				移動方向 = j;
