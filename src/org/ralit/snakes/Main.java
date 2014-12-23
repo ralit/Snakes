@@ -13,20 +13,22 @@ public class Main {
 		/**
 		 * 1‰ñ‚¾‚¯
 		 */
-//		int n = 1000;
-//		float ƒ¿ = 1;
-//		float ƒÀ = 1;
-//		float ƒÁ = 1;
-//		Snakes snakes = new Snakes(
-//				HOME + "/Desktop/Snakes/p388-nemu-yumemi.jpg", 
-//				HOME + "/Desktop/Snakes/output/", 
-//				HOME + "/Desktop/Snakes/data.txt", 
-//				-1,
-//				n, 
-//				ƒ¿, 
-//				ƒÀ, 
-//				ƒÁ);
-//		writePoints(snakes.getImage().p, snakes.getPoints(), HOME + "/Desktop/Snakes/output/p388-nemu-yumemi_"+"n"+n+","+ƒ¿+","+ƒÀ+","+ƒÁ+".png", rgb(255, 0, 0));
+		int n = 100;
+		float ƒ¿ = 100;
+		float ƒÀ = 20;
+		float ƒÁ = 8;
+		float ƒÂ = -8;
+		Snakes snakes = new Snakes(
+				HOME + "/Desktop/Snakes/p388-nemu-yumemi.jpg", 
+				HOME + "/Desktop/Snakes/output/", 
+				HOME + "/Desktop/Snakes/data.txt", 
+				-1,
+				n, 
+				ƒ¿, 
+				ƒÀ, 
+				ƒÁ,
+				ƒÂ);
+		writePoints(snakes.getImage().p, snakes.getPoints(), HOME + "/Desktop/Snakes/output/p388-nemu-yumemi_"+"n"+n+","+ƒ¿+","+ƒÀ+","+ƒÁ+","+ƒÂ+".png", rgb(255, 0, 0));
 
 		/**
 		 * ‚½‚­‚³‚ñƒpƒ‰ƒ[ƒ^‚ğ‚·
@@ -49,23 +51,25 @@ public class Main {
 //			}
 //		}
 		
-		int n = 1000;
-		for(int ƒ¿=1; ƒ¿ <= 1; ƒ¿+=20) {
-			for(int ƒÀ=1; ƒÀ <= 1; ƒÀ+=20) {
-				for(int ƒÁ=1; ƒÁ <= 1; ƒÁ+=20) {
-					Snakes snakes = new Snakes(
-							HOME + "/Desktop/Snakes/pusheen.jpg", 
-							HOME + "/Desktop/Snakes/output/", 
-							HOME + "/Desktop/Snakes/data.txt", 
-							-1,
-							n, 
-							ƒ¿, 
-							ƒÀ, 
-							ƒÁ);
-					writePoints(snakes.getImage().p, snakes.getPoints(), HOME + "/Desktop/Snakes/output/pusheen_"+"n"+n+","+ƒ¿+","+ƒÀ+","+ƒÁ+".png", rgb(255, 0, 0));
-				}
-			}
-		}
+//		int n = 101;
+//		int ƒÂ = -1;
+//		for(int ƒ¿=1; ƒ¿ <= 1; ƒ¿+=20) {
+//			for(int ƒÀ=1; ƒÀ <= 1; ƒÀ+=20) {
+//				for(int ƒÁ=1; ƒÁ <= 1; ƒÁ+=20) {
+//					Snakes snakes = new Snakes(
+//							HOME + "/Desktop/Snakes/pusheen.jpg", 
+//							HOME + "/Desktop/Snakes/output/", 
+//							HOME + "/Desktop/Snakes/data.txt", 
+//							-1,
+//							n, 
+//							ƒ¿, 
+//							ƒÀ, 
+//							ƒÁ,
+//							ƒÂ);
+//					writePoints(snakes.getImage().p, snakes.getPoints(), HOME + "/Desktop/Snakes/output/pusheen_"+"n"+n+","+ƒ¿+","+ƒÀ+","+ƒÁ+","+ƒÂ+".png", rgb(255, 0, 0));
+//				}
+//			}
+//		}
 
 		System.out.println("‚¨‚í‚è");
 	}
